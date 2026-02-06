@@ -1,6 +1,6 @@
 # 💳 Secure Digital Payment App
 
-A secure, full-stack digital payment application built using **Spring Boot**, **JWT Authentication**, **SQL Server**, and **Thymeleaf**.  
+A secure, full-stack digital payment application built using **Spring Boot**, **JWT Authentication**, **SQL Server**, and **JavaScript**.  
 This project demonstrates secure login, payment processing, and transaction history management.
 
 ---
@@ -12,7 +12,7 @@ This project demonstrates secure login, payment processing, and transaction hist
 - ✅ Real-time Payment Success / Failure handling
 - 📜 Transaction History with Date & Time
 - 🧾 Password Validation (Capital, Number, Special Character)
-- 🎨 Clean UI using HTML, CSS, Thymeleaf
+- 🎨 Clean UI using HTML, CSS, JavaScript 
 - 🔒 Spring Security integration
 
 ---
@@ -29,7 +29,7 @@ This project demonstrates secure login, payment processing, and transaction hist
 **Frontend**
 - HTML
 - CSS
-- JavaScript
+- JavaScript (Fetch API)
 
 **Database**
 - Microsoft SQL Server
