@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction History</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Transaction History</h2>
+
+  <table id="historyTable" border="1" width="100%">
+    <tr>
+      <th>Se No</th>
+      <th>UPI ID</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Date & Time</th>
+
+    </tr>
+  </table>
+
+  <div class="link">
+    <a href="/dashboard">Back to Dashboard</a>
+  </div>
+</div>
+
+<script>
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+      alert("Please login first");
+      window.location.href = "/login";
+  }
+
+  fetch("/payment/history", {
+      headers: {
+          "Authorization": "Bearer " + token
+      }
+  })
+  .then(res => res.json())
+  .then(data => {
+      const table = document.getElementById("historyTable");
+
+      let count = 1;
+      data.forEach(txn => {
+      const row = table.insertRow();
+      row.insertCell(0).innerText = count++;
+      row.insertCell(1).innerText = txn.upiId;
+      row.insertCell(2).innerText = txn.amount;
+      row.insertCell(3).innerText = txn.status;
+      row.insertCell(4).innerText = txn.transactionTime.replace("T", " ");
+  });
+
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>

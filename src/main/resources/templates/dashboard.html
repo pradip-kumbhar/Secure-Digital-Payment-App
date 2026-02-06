@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container dashboard">
+    <h2>Welcome</h2>
+
+    <button onclick="location.href='/payment'">Initiate Payment</button>
+    <button onclick="location.href='/status'">Transaction History</button>
+    <button onclick="location.href='/login'">Logout</button>
+</div>
+<script>
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("Please login first");
+        window.location.href = "/login";
+    }
+</script>
+
+</body>
+
+</html>

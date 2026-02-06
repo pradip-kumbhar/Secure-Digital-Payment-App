@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Account</h2>
+
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const res = await fetch("/auth/register", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    name: name.value,
+                    email: email.value,
+                    password: password.value,
+                    phone: phone.value
+                })
+            });
+
+            if(res.ok){
+                alert("Registered successfully");
+                window.location.href = "/login";
+            } else {
+                alert("Registration failed");
+            }
+        });
+    </script>
+
+</div>
+
+</body>
+</html>
